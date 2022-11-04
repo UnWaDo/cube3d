@@ -1,5 +1,18 @@
 #include "cube_hero.h"
 
+static t_vec2	get_camera_dir(char code)
+{
+	const char		codes[] = {HERO_NORTH, HERO_SOUTH, HERO_WEST, HERO_EAST};
+	const t_vec2	cameras[] = {{.x = 0, .y = -1}, {.x = 0, .y = 1},
+	{.x = -1, .y = 0}, {.x = 1, .y = 0}};
+	unsigned long	i;
+
+	i = 0;
+	while (i < sizeof(codes) / sizeof(*codes) && codes[i] != code)
+		i++;
+	return (cameras[i]);
+}
+
 static void	get_hero_pos(t_hero *hero, t_map *map)
 {
 	int	x;
@@ -13,15 +26,8 @@ static void	get_hero_pos(t_hero *hero, t_map *map)
 		{
 			if (ft_strchr(HERO_CODES, map->map[y][x]))
 			{
-				hero->pos = (t_vec2) {.x = x + 0.5, .y = y + 0.5};
-				if (map->map[y][x] == HERO_NORTH)
-					hero->camera = (t_vec2) {.x = 0, .y = -1};
-				else if (map->map[y][x] == HERO_SOUTH)
-					hero->camera = (t_vec2) {.x = 0, .y = 1};
-				else if (map->map[y][x] == HERO_WEST)
-					hero->camera = (t_vec2) {.x = -1, .y = 0};
-				else if (map->map[y][x] == HERO_EAST)
-					hero->camera = (t_vec2) {.x = 1, .y = 0};
+				hero->pos = (t_vec2){.x = x + 0.5, .y = y + 0.5};
+				hero->camera = get_camera_dir(map->map[y][x]);
 				return ;
 			}
 			x++;

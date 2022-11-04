@@ -13,6 +13,8 @@
 #ifndef CUBE_UTILS_H
 # define CUBE_UTILS_H
 
+# include <math.h>
+
 enum
 {
 	ON_KEYDOWN = 2,
@@ -57,5 +59,6 @@ t_vec2	rotate_vec(t_vec2 vec, double angle);
 void	print_error(char *error);
 void	print_error_with_add(char *error, char *additional);
 void	print_error_with_number(char *error, int nbr);
+int		make_dda(char **map, t_vec2 pos, t_vec2 ray, t_vec2 *l_h);
 
 #endif

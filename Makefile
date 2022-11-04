@@ -1,8 +1,8 @@
-SOURCES_MAIN	=	main.c clean_cube.c utils.c
+SOURCES_MAIN	=	main.c clean_cube.c utils.c init_cube.c
 SOURCES_BERS	=	read_ber.c init_map.c read_lines.c textures.c check_map.c print_map.c
 SOURCES_HERO	=	hero.c init_hero.c
 SOURCES_MLX		=	mlx_init.c mlx_images.c mlx_utils.c 
-SOURCES_CASTER	=	artist.c
+SOURCES_CASTER	=	artist.c vec_utils.c dda.c
 SOURCES_FN		=	$(addprefix main/,$(SOURCES_MAIN)) \
 						$(addprefix bers/,$(SOURCES_BERS)) \
 						$(addprefix mlx/,$(SOURCES_MLX)) \
@@ -14,7 +14,7 @@ LIBFT			=	$(LIBFT_PATH)/libft.a
 INCLUDES		=	./includes/
 HEADERS_LIBFT	=	$(addprefix $(LIBFT_PATH),libft.h)
 HEADERS_CUBE	=	cube.h cube_map.h cube_mlx.h cube_hero.h \
-					cube_mlx.h cube_utils.h
+					cube_utils.h
 HEADERS			=	$(addprefix $(INCLUDES),$(HEADERS_CUBE)) \
 					$(HEADERS_LIB)
 NAME			=	cube

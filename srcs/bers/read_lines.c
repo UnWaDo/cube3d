@@ -3,29 +3,36 @@
 #include <fcntl.h>
 #include <string.h>
 
+static int	proceed_line(t_list **lst, char *line)
+{
+	t_list	*new;
+
+	new = ft_lstnew(line);
+	if (!new)
+		return (1);
+	ft_lstadd_back(lst, new);
+	return (0);
+}
+
 static t_list	*read_map_lines(int fd)
 {
 	char	*line;
 	t_list	*lst;
-	t_list	*new;
 
 	line = get_next_line(fd);
-	new = NULL;
 	lst = NULL;
 	while (line)
 	{
 		if (line[0] == '\n')
 		{
-			line = get_next_line(fd);
-			continue ;
+			free(line);
+			line = NULL;
 		}
-		new = ft_lstnew(line);
-		if (!new)
+		if (line && proceed_line(&lst, line))
 			break ;
-		ft_lstadd_back(&lst, new);
 		line = get_next_line(fd);
 	}
-	if (line && !new)
+	if (line)
 	{
 		free(line);
 		ft_lstclear(&lst, &free);
@@ -72,10 +79,8 @@ t_list	*read_lines(char *file)
 	lst = read_map_lines(fd);
 	close(fd);
 	if (!lst)
-	{
 		print_error(MAP_ALLOC_ERR);
-		return (NULL);
-	}
-	remove_endlines(lst);
+	if (lst)
+		remove_endlines(lst);
 	return (lst);
 }

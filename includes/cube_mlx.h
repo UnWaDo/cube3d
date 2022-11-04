@@ -39,7 +39,7 @@ typedef struct s_img
 	t_pos	w_h;
 }	t_img;
 
-enum	IMG_CODES
+enum	e_IMG_CODES
 {
 	I_MAP_CODE,
 	I_NWALL_CODE,
@@ -75,7 +75,6 @@ t_mlx	*start_mlx_win(t_pos w_h, char *title);
 t_img	*create_new_image(t_mlx *mlx, t_pos w_h, int code);
 t_img	*load_xpm_image(t_mlx *mlx, const char *path, int code);
 t_img	*get_loaded_img(t_list *lst, int code);
-void	strip_img(t_img *src, t_img *dst, double strp_x, t_pos w_h_dst, int height);
 void	clear_mlx(t_mlx *mlx);
 
 #endif

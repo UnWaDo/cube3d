@@ -1,23 +1,14 @@
 #include "cube.h"
 
-static void	free_lines(char **lines)
-{
-	int i;
-	
-	i = 0;
-	while (lines[i])
-		free(lines[i++]);
-	free(lines);
-}
-
 static int	get_type(char *name)
 {
 	long		i;
 	int			len;
 	const char	*names[] = {"NO", "SO", "WE", "EA"};
-	const int	types[] = {I_NWALL_CODE, I_SWALL_CODE, I_WWALL_CODE, I_EWALL_CODE};
+	const int	types[] = {I_NWALL_CODE, I_SWALL_CODE,
+		I_WWALL_CODE, I_EWALL_CODE};
 
-	i = (int) (sizeof(names) / sizeof(*names)) - 1;
+	i = (int)(sizeof(names) / sizeof(*names)) - 1;
 	len = ft_strlen(name) + 1;
 	while (i >= 0
 		&& ft_strncmp(name, names[i], len))
@@ -66,10 +57,11 @@ static int	get_texture(t_mlx *mlx, t_list **lines)
 static int	get_default_textures(t_mlx *mlx)
 {
 	int			i;
-	const int	types[] = {I_NWALL_CODE, I_SWALL_CODE, I_WWALL_CODE, I_EWALL_CODE};
+	const int	types[] = {I_NWALL_CODE, I_SWALL_CODE,
+		I_WWALL_CODE, I_EWALL_CODE};
 	const char	*defaults[] = {NO_DEF, SO_DEF, WE_DEF, EA_DEF};
 
-	i = (int) (sizeof(types) / sizeof(*types)) - 1;
+	i = (int)(sizeof(types) / sizeof(*types)) - 1;
 	while (i >= 0)
 	{
 		if (get_loaded_img(mlx->images, types[i]) == NULL

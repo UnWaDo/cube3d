@@ -43,7 +43,8 @@ t_img	*load_xpm_image(t_mlx *mlx, const char *path, int code)
 	if (!img)
 		return (NULL);
 	img->code = code;
-	img->img = mlx_xpm_file_to_image(mlx->mlx_ptr, (char *) path, &(img->w_h.x), &(img->w_h.y));
+	img->img = mlx_xpm_file_to_image(mlx->mlx_ptr,
+			(char *)path, &(img->w_h.x), &(img->w_h.y));
 	if (!img->img)
 		print_error_with_add(MLX_IMG_OPEN_ERR, (char *) path);
 	return (process_image(mlx, img));

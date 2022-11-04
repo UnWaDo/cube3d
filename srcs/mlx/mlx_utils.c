@@ -47,24 +47,3 @@ void	fill_color(t_img *img, int c)
 {
 	put_rect(img, (t_pos){.x = 0, .y = 0}, img->w_h, c);
 }
-
-void	strip_img(t_img *src, t_img *dst, double strp_x, t_pos w_h_dst, int height)
-{
-	double	scaler;
-	int		pixel;
-	t_pos	src_pos;
-	double	count;
-
-	src_pos.x = strp_x * src->w_h.x;
-	src_pos.y = 0;
-	count = w_h_dst.y;
-	scaler = 1.0 * height / src->w_h.y;
-	while (src_pos.y < src->w_h.y)
-	{
-		pixel = get_pixel(src, src_pos);
-		put_rect(dst, w_h_dst, (t_pos) {.x = 1, .y = (int) count - w_h_dst.y}, pixel);
-		src_pos.y++;
-		w_h_dst.y += (int) count - w_h_dst.y;
-		count += scaler;
-	}
-}

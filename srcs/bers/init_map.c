@@ -32,9 +32,9 @@ static int	get_max_width(t_list *map_lines)
 			max = width;
 		map_lines = map_lines->next;
 	}
-	if (width > __INT_MAX__)
+	if (max > __INT_MAX__)
 		return (0);
-	return ((int) width);
+	return ((int) max);
 }
 
 static void	fill_map(t_map *map, t_list *map_lines)

@@ -50,3 +50,13 @@ void	clean_cube(t_cube *cube)
 		clean_mlx(cube->mlx);
 	free(cube);
 }
+
+void	free_lines(char **lines)
+{
+	int	i;
+
+	i = 0;
+	while (lines[i])
+		free(lines[i++]);
+	free(lines);
+}
