@@ -9,6 +9,8 @@ int	init_mlx(t_mlx *mlx)
 		print_error(MLX_ALLOC_ERR);
 		return (1);
 	}
+	mlx->floor_c = -1;
+	mlx->ceiling_c = -1;
 	return (0);
 }
 

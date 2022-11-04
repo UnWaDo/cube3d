@@ -32,21 +32,23 @@ static t_vec2	get_ray(int x, t_vec2 camera)
 	return (ray);
 }
 
-static void	draw_strip(t_img *img, t_map *map, int x, t_vec2 l_h)
+static void	draw_strip(t_img *img, t_mlx *mlx, int x, t_vec2 l_h)
 {
 	t_pos	corner;
 	t_pos	w_h;
+	t_img	*canvas;
 
+	canvas = get_loaded_img(mlx->images, I_MAP_CODE);
 	corner = (t_pos){.x = x, .y = 0};
 	w_h = (t_pos){.x = 1, .y = (0.5 - 0.25 / l_h.x) * HEIGHT};
-	put_rect(map->canvas, corner, w_h, to_trgb(0, 166, 206, 227));
+	put_rect(canvas, corner, w_h, mlx->ceiling_c);
 	corner.y += w_h.y;
 	w_h.y = (0.5 / l_h.x) * HEIGHT;
-	strip_img(img, map->canvas, (t_vec2){.x = l_h.y - (int)l_h.y,
+	strip_img(img, canvas, (t_vec2){.x = l_h.y - (int)l_h.y,
 		.y = w_h.y}, corner);
 	corner.y += w_h.y;
 	w_h.y = (0.5 - 0.25 / l_h.x) * HEIGHT;
-	put_rect(map->canvas, corner, w_h, to_trgb(0, 178, 223, 138));
+	put_rect(canvas, corner, w_h, mlx->floor_c);
 }
 
 void	draw_screen(t_hero *hero, t_map *map, t_mlx *mlx)
@@ -62,7 +64,7 @@ void	draw_screen(t_hero *hero, t_map *map, t_mlx *mlx)
 		ray = get_ray(x_s.x, hero->camera);
 		x_s.y = make_dda(map->map, hero->pos, ray, &l_h);
 		img = get_loaded_img(mlx->images, x_s.y);
-		draw_strip(img, map, x_s.x, l_h);
+		draw_strip(img, mlx, x_s.x, l_h);
 		x_s.x++;
 	}
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, map->canvas->img, 0, 0);

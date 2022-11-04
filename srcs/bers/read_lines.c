@@ -23,12 +23,7 @@ static t_list	*read_map_lines(int fd)
 	lst = NULL;
 	while (line)
 	{
-		if (line[0] == '\n')
-		{
-			free(line);
-			line = NULL;
-		}
-		if (line && proceed_line(&lst, line))
+		if (proceed_line(&lst, line))
 			break ;
 		line = get_next_line(fd);
 	}

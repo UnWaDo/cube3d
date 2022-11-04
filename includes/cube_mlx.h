@@ -25,6 +25,8 @@ typedef struct s_mlx
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
+	int		floor_c;
+	int		ceiling_c;
 	t_list	*images;
 }	t_mlx;
 
@@ -54,6 +56,14 @@ enum	e_IMG_CODES
 # define MLX_IMG_OPEN_ERR	"Invalid image"
 # define MLX_IMG_ERR		"Image creation failed"
 # define BER_IMG_ERR		"Invalid texture line"
+# define BER_ID_ERR			"Invalid identifier"
+# define BER_ID_DUP_ERR		"Duplicate identifier"
+# define BER_UNDEF_TEXT_ERR	"Undefined texture"
+# define BER_UNDEF_COL_ERR	"Undefined color"
+# define BER_TOO_MANY_C		"Too many values for color given (expected 3)"
+# define BER_NOT_ENOUGH_C	"Not enough values for color given (expected 3)"
+# define BER_C_OUT_OF_RANGE	"Invalid value for color (must be 0 <= x < 255)"
+# define BER_C_INVALID		"Non-numeric value for color given"
 
 # define HERO_IMG		"imgs/human.xpm"
 # define EMPTY_IMG		"imgs/floor.xpm"
@@ -61,6 +71,8 @@ enum	e_IMG_CODES
 # define COLL_IMG		"imgs/bag_coins.xpm"
 # define ENEMY_IMG		"imgs/goblin.xpm"
 # define EXIT_IMG		"imgs/flag_red.xpm"
+
+typedef int (*t_f_txtr)(t_mlx *, char **);
 
 int		init_mlx(t_mlx *mlx);
 int		init_win(t_mlx *mlx);
