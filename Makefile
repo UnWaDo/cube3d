@@ -21,7 +21,7 @@ HEADERS_CUBE	=	cube.h cube_map.h cube_mlx.h cube_hero.h \
 					cube_utils.h
 HEADERS			=	$(addprefix $(INCLUDES),$(HEADERS_CUBE)) \
 					$(HEADERS_LIBFT)
-NAME			=	cube
+NAME			=	cub3D
 OBJECTS			=	$(SOURCES:.c=.o)
 IFLAGS			=	$(addprefix -I,$(LIBFT_PATH) $(MLX_PATH) $(INCLUDES))
 CFLAGS			=	-g -Wall -Wextra -Werror #-fsanitize=address
