@@ -14,6 +14,8 @@ typedef struct s_map
 t_list	*read_lines(char *file);
 int		read_ber(t_mlx *mlx, t_map *map, char *ber);
 int		init_textures(t_mlx *mlx, t_list **lines);
+int		get_texture(t_mlx *mlx, char *line);
+int		add_color(t_mlx *mlx, char **params);
 int		init_map(t_map *map, t_list *map_lines);
 int		check_map(t_map *map);
 void	draw_map(t_mlx *mlx, t_map *map);

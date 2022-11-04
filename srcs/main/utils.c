@@ -22,3 +22,14 @@ void	print_error_with_number(char *error, int nbr)
 	ft_putnbr_fd(nbr, 2);
 	ft_putchar_fd('\n', 2);
 }
+
+int	is_value(char *line)
+{
+	while (*line)
+	{
+		if (!ft_isdigit(*line))
+			return (0);
+		line++;
+	}
+	return (1);
+}

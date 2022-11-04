@@ -1,12 +1,14 @@
 SOURCES_MAIN	=	main.c clean_cube.c utils.c init_cube.c
-SOURCES_BERS	=	read_ber.c init_map.c read_lines.c textures.c check_map.c print_map.c
+SOURCES_BERS	=	read_ber.c init_map.c read_lines.c check_map.c print_map.c
 SOURCES_HERO	=	hero.c init_hero.c
 SOURCES_MLX		=	mlx_init.c mlx_images.c mlx_utils.c 
 SOURCES_CASTER	=	artist.c vec_utils.c dda.c
+SOURCES_PARSER	=	textures.c get_texture.c colors.c
 SOURCES_FN		=	$(addprefix main/,$(SOURCES_MAIN)) \
 						$(addprefix bers/,$(SOURCES_BERS)) \
 						$(addprefix mlx/,$(SOURCES_MLX)) \
 						$(addprefix hero/,$(SOURCES_HERO)) \
+						$(addprefix parser/,$(SOURCES_PARSER)) \
 						$(addprefix caster/,$(SOURCES_CASTER))
 SOURCES			=	$(addprefix srcs/,$(SOURCES_FN))
 LIBFT_PATH		=	./libft/

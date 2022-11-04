@@ -72,7 +72,7 @@ enum	e_IMG_CODES
 # define ENEMY_IMG		"imgs/goblin.xpm"
 # define EXIT_IMG		"imgs/flag_red.xpm"
 
-typedef int (*t_f_txtr)(t_mlx *, char **);
+typedef int	(*t_f_txtr)(t_mlx *, char **);
 
 int		init_mlx(t_mlx *mlx);
 int		init_win(t_mlx *mlx);
