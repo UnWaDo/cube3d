@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   cube_utils.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lalex <lalex@students.21-school.ru>        +#+  +:+       +#+        */
+/*   By: lalex <lalex@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 23:24:44 by lalex             #+#    #+#             */
-/*   Updated: 2022/01/03 18:34:24 by lalex            ###   ########.fr       */
+/*   Updated: 2022/11/04 16:42:33 by lalex            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,17 @@ enum
 
 enum
 {
-	KEYCODE_ENTER = 65293,
-	KEYCODE_ESCAPE = 65307,
-	KEYCODE_LEFT = 65361,
-	KEYCODE_UP = 65362,
-	KEYCODE_RIGHT = 65363,
-	KEYCODE_DOWN = 65364,
-	KEYCODE_W = 119,
-	KEYCODE_A = 97,
-	KEYCODE_S = 115,
-	KEYCODE_D = 100,
-	KEYCODE_SPACE = 32
+	KEYCODE_ENTER = 36,
+	KEYCODE_ESCAPE = 53,
+	KEYCODE_LEFT = 123,
+	KEYCODE_UP = 126,
+	KEYCODE_RIGHT = 124,
+	KEYCODE_DOWN = 125,
+	KEYCODE_W = 13,
+	KEYCODE_A = 0,
+	KEYCODE_S = 1,
+	KEYCODE_D = 2,
+	KEYCODE_SPACE = 49
 };
 
 typedef struct s_pos
